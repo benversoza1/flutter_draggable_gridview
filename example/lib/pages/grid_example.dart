@@ -93,9 +93,9 @@ class GridExampleState extends State<GridExample>{
         DraggableGridItem(child: GridItem(image: Images.asset_8), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_9), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_10), isDraggable: true),
-        DraggableGridItem(child: GridItem(image: Images.asset_11), isDraggable: true),
-        DraggableGridItem(child: GridItem(image: Images.asset_12), isDraggable: true),
-        DraggableGridItem(child: GridItem(image: Images.asset_13), isDraggable: true),
+        // DraggableGridItem(child: GridItem(image: Images.asset_11), isDraggable: true),
+        // DraggableGridItem(child: GridItem(image: Images.asset_12), isDraggable: true),
+        // DraggableGridItem(child: GridItem(image: Images.asset_13), isDraggable: true),
       ],
     );
   }

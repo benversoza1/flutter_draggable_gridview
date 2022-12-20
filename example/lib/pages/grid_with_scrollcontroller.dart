@@ -4,6 +4,7 @@ import 'package:example/constants/colors.dart';
 import 'package:example/constants/dimens.dart';
 import 'package:example/constants/images.dart';
 import 'package:example/constants/strings.dart';
+import 'package:example/pieces/statistics_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_draggable_gridview/flutter_draggable_gridview.dart';
@@ -21,7 +22,7 @@ class GridWithScrollControllerExample extends StatefulWidget {
 
 class GridWithScrollControllerExampleState extends State<GridWithScrollControllerExample>{
   List<DraggableGridItem> _listOfDraggableGridItem = [];
-  ScrollController _scrollController = new ScrollController(
+  ScrollController _scrollController = ScrollController(
     initialScrollOffset: 0.0,
     keepScrollOffset: true,
   );
@@ -30,7 +31,7 @@ class GridWithScrollControllerExampleState extends State<GridWithScrollControlle
   void initState() {
     _generateImageData();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+      _scrollController.jumpTo(_scrollController.position.minScrollExtent);
     });
     super.initState();
   }
@@ -41,18 +42,21 @@ class GridWithScrollControllerExampleState extends State<GridWithScrollControlle
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          widget.title,
+          'View by Classification',
         ),
       ),
-      body: SafeArea(
+      body: Container(
+        color: Colors.black26,
         child: DraggableGridViewBuilder(
+          padding: EdgeInsets.all(2),
           controller: _scrollController,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: 8,
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 3),
+                (MediaQuery.of(context).size.height / 1),
           ),
           children: _listOfDraggableGridItem,
+          // children: _listOfDraggableGridItem,
           dragCompletion: onDragAccept,
           isOnlyLongPress: false,
           dragFeedback: feedback,
@@ -66,7 +70,7 @@ class GridWithScrollControllerExampleState extends State<GridWithScrollControlle
     return Container(
       child: list[index].child,
       width: 200,
-      height: 150,
+      height: 350,
     );
   }
 
@@ -92,10 +96,11 @@ class GridWithScrollControllerExampleState extends State<GridWithScrollControlle
             log('isDragging: $isDragging');
           },
         ),
+        // DraggableGridItem(child: GridItem(image: Images.asset_1), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_2), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_3), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_4), isDraggable: true),
-        DraggableGridItem(child: GridItem(image: Images.asset_5), isDraggable: false),
+        DraggableGridItem(child: GridItem(image: Images.asset_5), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_6), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_7), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_8), isDraggable: true),
@@ -104,6 +109,26 @@ class GridWithScrollControllerExampleState extends State<GridWithScrollControlle
         DraggableGridItem(child: GridItem(image: Images.asset_11), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_12), isDraggable: true),
         DraggableGridItem(child: GridItem(image: Images.asset_13), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_14), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_15), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_16), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_17), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_18), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_19), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_20), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_21), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_22), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_23), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_24), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_25), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_26), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_27), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_28), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_29), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_30), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_31), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_32), isDraggable: true),
+        DraggableGridItem(child: GridItem(image: Images.asset_33), isDraggable: true),
       ],
     );
   }
