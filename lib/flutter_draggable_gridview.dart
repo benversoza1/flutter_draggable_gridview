@@ -147,6 +147,7 @@ class _DraggableGridViewBuilderState extends State<DraggableGridViewBuilder> {
                   setState(() {});
                 },
                 feedback: widget.dragFeedback?.call(_list, index),
+                // feedback: widget.dragFeedback?.call(_list, index),
                 childWhenDragging: widget.dragChildWhenDragging?.call(_orgList, index),
                 placeHolder:
                     widget.dragPlaceHolder?.call(_orgList, index),

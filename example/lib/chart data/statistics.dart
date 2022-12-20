@@ -11,7 +11,7 @@ Future<Statistics> getStats() async {
   Activity first = activities.iterable.first;
   String activity = first.id;
   Activity activitySnapshot =
-      await PiecesApi.activityApi.activitiesSpecificActivitySnapshot(activity);
+  await PiecesApi.activityApi.activitiesSpecificActivitySnapshot(activity);
   String version = activitySnapshot.application.version;
   String platform = activitySnapshot.application.platform.value;
 
@@ -113,14 +113,14 @@ Future<Statistics> getStats() async {
   }
 
   List<String> tags =
-      (Map.fromEntries(tagMap.entries.toList()..sort((e1, e2) => e2.value.compareTo(e1.value))))
-          .keys
-          .toList();
+  (Map.fromEntries(tagMap.entries.toList()..sort((e1, e2) => e2.value.compareTo(e1.value))))
+      .keys
+      .toList();
 
   List<String> persons =
-      (Map.fromEntries(personMap.entries.toList()..sort((e1, e2) => e2.value.compareTo(e1.value))))
-          .keys
-          .toList();
+  (Map.fromEntries(personMap.entries.toList()..sort((e1, e2) => e2.value.compareTo(e1.value))))
+      .keys
+      .toList();
 
   /// Assuming average wpm is 50, we are calculating the number of seconds for total words
   timeTaken = totalWordsSaved * 1.2;
